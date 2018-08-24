@@ -4,3 +4,9 @@ filter:
 
     dependency_paths:
         - library/
+
+    excluded_paths:
+        - assets/
+        - credentials/
+        - templates/
+        - index
