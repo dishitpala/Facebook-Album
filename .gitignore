@@ -1,2 +1,2 @@
- library/composer.lock
- library/vendor
+library/*
+!*/library/composer.json
