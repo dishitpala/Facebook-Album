@@ -1,0 +1,6 @@
+filter:
+    paths:
+        - includes/
+
+    dependency_paths:
+        - library/
