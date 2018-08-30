@@ -12,7 +12,7 @@ if(isset($_GET['albumid'])){
 		$parent = $googledrive->easy_createFolder('facebook_'.$_SESSION['Facebook_User'].'_albums');
 		foreach(getAlbums() as $album){
 			$albumPictures = getAlbumPictures($album->id);
-			$child = $googledrive->easy_createChildFolder($parent,$albumPictures['name']);
+			$child = $googledrive->easy_createChildFolder($parent,str_replace(' ','_',$albumPictures['name']));
 			$childsChild = $googledrive->easy_createChildFolder($child,date('m/d/Y h:i:s a', time()));
 			$googledrive->easy_upload($childsChild,$albumPictures['source']);
 		}
@@ -21,7 +21,7 @@ if(isset($_GET['albumid'])){
 		$parent = $googledrive->easy_createFolder('facebook_'.$_SESSION['Facebook_User'].'_albums');
 		foreach($ids as $id){
 			$albumPictures = getAlbumPictures($id);
-			$child = $googledrive->easy_createChildFolder($parent,$albumPictures['name']);
+			$child = $googledrive->easy_createChildFolder($parent,str_replace(' ','_',$albumPictures['name']));
 			$childsChild = $googledrive->easy_createChildFolder($child,date('m/d/Y h:i:s a', time()));
 			$googledrive->easy_upload($childsChild,$albumPictures['source']);
 		}

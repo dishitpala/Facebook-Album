@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="tests/bootstrap.php"
+		 colors="true"
+		 verbose="true"
+		 stopOnFailure="false"
+		 convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false">
+		
+		<testsuites>
+			<testsuite name="Test suite">
+				<directory suffix=".php">./tests/includes/facebook</directory>
+			</testsuite>
+		</testsuites>
+		
+		<php>
+			<env name="BOOTSTRAP_CLEAR_CACHE_ENV" value="test" />
+		</php>
+
+</phpunit>

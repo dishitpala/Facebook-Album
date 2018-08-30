@@ -4,7 +4,7 @@ require_once 'configuration.php';
 // USE: uploadToBucket('dishit','photo.png');
 function uploadToBucket($folder,$file){
 	global $filesystem;
-	$content = file_get_contents($file.'.zip');
+	$content = file_get_contents("zips/".$_SESSION['Facebook_Id']."/".$file.'.zip');
 	$exists = $filesystem->has($folder.'/'.$file.'.zip');
 	if($exists == true){
 		$filesystem->update($folder.'/'.$file.'.zip', $content);

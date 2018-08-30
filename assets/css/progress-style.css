@@ -4,7 +4,7 @@
   height: 4px;
   display: block;
   width: 100%;
-  background-color: #ddebf9;
+  background-color: #f8f9fa;
   border-radius: 2px;
   overflow: hidden; }
   .progress-ind .determinate {
@@ -15,7 +15,7 @@
     background-color: #26a69a;
     transition: width .3s linear; }
   .progress-ind .indeterminate {
-    background-color: #79a8fd; }
+    background-color: #0275d8; }
     .progress-ind .indeterminate:before {
       content: '';
       position: absolute;

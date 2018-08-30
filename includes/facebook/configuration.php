@@ -12,9 +12,7 @@ $facebook = new easy_facebook(array(
     'default_graph_version' => '{}', //Graph version
 ));
 $facebook -> permissions(['user_photos']); //permission must be in array
-$facebook -> easy_redirect('https://dishitpala.herokuapp.com/index.php'); //url in which page redirect after login
-//$facebook -> easy_redirect('https://localhost/facebook/index.php'); //url in which page redirect after login
+$facebook -> easy_redirect('{}'); //url in which page redirect after login
 $facebook -> easy_token();
 
-//$facebook -> logout('config.php');
 ?>

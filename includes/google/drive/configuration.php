@@ -7,6 +7,7 @@ $googledrive = new easy_googledrive(array(
 	'ClientSecret' => '{}',
 	'AccessType' => '{}',
 	'RedirectUri' => '{}'
+	
 ));
 
 $googledrive->easy_initialize();

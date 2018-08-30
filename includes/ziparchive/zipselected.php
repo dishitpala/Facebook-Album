@@ -14,9 +14,12 @@ if(isset($_GET['albumid'])){
 			$albumPictures = getAlbumPictures($id);
 			$albumName = str_replace(" ","_",$albumPictures['name']);
 			$zip = new ZipArchive();
-			$zip_name = $albumName.".zip";
+			$zip_name = $albumName;
 			$index = 0;
-			if($zip->open($zip_name, ZIPARCHIVE::CREATE)!==TRUE)  
+			if (!file_exists("zips/".$_SESSION['Facebook_Id'])) {
+				mkdir("zips/".$_SESSION['Facebook_Id'], 0777, true);
+			}
+			if($zip->open("zips/".$_SESSION['Facebook_Id']."/".$zip_name.".zip", ZIPARCHIVE::CREATE)!==TRUE)  
 			{   
 				// Opening zip file to load files  
 				$error .= "* Sorry ZIP creation failed at this time";  
@@ -29,7 +32,7 @@ if(isset($_GET['albumid'])){
 			}
 			$zip->close();
 			
-			uploadToBucket($_SESSION['Facebook_Id'],$albumName);
+			uploadToBucket($_SESSION['Facebook_Id'],$zip_name);
 		}
 	}else{
 		foreach(getAlbums() as $album){
@@ -37,14 +40,18 @@ if(isset($_GET['albumid'])){
 				$albumPictures = getAlbumPictures($album->id);
 				$albumName = str_replace(" ","_",$albumPictures['name']);
 				$zip = new ZipArchive();
-				$zip_name = $albumName.".zip";
+				$zip_name = $albumName;
 				$index = 0;
-				if($zip->open($zip_name, ZIPARCHIVE::CREATE)!==TRUE)  
+				if (!file_exists("zips/".$_SESSION['Facebook_Id'])) {
+					mkdir("zips/".$_SESSION['Facebook_Id'], 0777, true);
+				}
+				if($zip->open("zips/".$_SESSION['Facebook_Id']."/".$zip_name.".zip", ZIPARCHIVE::CREATE)!==TRUE)  
 				{   
 					// Opening zip file to load files  
 					$error .= "* Sorry ZIP creation failed at this time";  
 					echo $error;
 				}
+				
 				foreach($albumPictures['source'] as $pictures){
 					$index++;
 					$photo = file_get_contents($pictures);

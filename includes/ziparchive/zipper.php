@@ -13,9 +13,12 @@ if(isset($_GET['albumid'])){
 		$albumPictures = getAlbumPictures($_GET['albumid']);
 
 		$zip = new ZipArchive();
-		$zip_name = $_GET['name'].".zip";
+		$zip_name = $_GET['name'];
 		$index = 0;
-		if($zip->open($zip_name, ZIPARCHIVE::CREATE)!==TRUE)  
+		if (!file_exists("zips/".$_SESSION['Facebook_Id'])) {
+				mkdir("zips/".$_SESSION['Facebook_Id'], 0777, true);
+		}
+		if($zip->open("zips/".$_SESSION['Facebook_Id']."/".$zip_name.".zip", ZIPARCHIVE::CREATE)!==TRUE)  
 		{   
 			// Opening zip file to load files  
 			$error .= "* Sorry ZIP creation failed at this time";  

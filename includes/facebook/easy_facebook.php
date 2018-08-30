@@ -46,7 +46,7 @@ class easy_facebook extends Facebook{
 	function easy_token() {
 			try {
 				if($this -> isLoggedIn() == false){
-					$easy_token = $this->easy_helper()->getAccessToken();
+					$easy_token = $this->easy_helper()->getAccessToken($this->url);
 				}else{
 					$easy_token = $_SESSION['Facebook_Token'];
 				}
@@ -92,14 +92,9 @@ class easy_facebook extends Facebook{
 			return $data;
 		}
 	}
-	
-	function logout($to_redirect){
-		// Remove access token from session
-		unset($_SESSION['Facebook_Token']);
-		// Redirect to the homepage
-		header("Location:".$to_redirect);
-	}
 
+	
+	
 }
 
 

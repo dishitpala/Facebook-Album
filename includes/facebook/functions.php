@@ -53,10 +53,26 @@ function getAlbumPictures($albumId){
 	return array('name'=>$albumName,'source'=>$imageSource);
 }
 
+// USE: getPopAlbum('102616669821602');
+function getPopAlbum($albumId){
+	global $facebook;
+	$basics = json_decode($facebook -> easy_query('/'.$albumId.'?fields=id,name,photos{images}'));
+	$albumName = $basics->name;
+	$imageSource = array();
+	foreach($basics->photos->data as $data){
+		$formate = array('src' => $data->images[0]->source,
+					  'h' => $data->images[0]->height,
+					  'w' => $data->images[0]->width);
+			  
+		array_push($imageSource,$formate);
+	}
+	return json_encode($imageSource,JSON_UNESCAPED_SLASHES);
+}
+
 
 function logout(){
 	global $facebook;
-	$facebook->logout('index.php');
+	return $facebook->easy_logout();
 }
 
 

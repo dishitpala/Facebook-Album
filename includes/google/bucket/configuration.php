@@ -12,7 +12,7 @@ use Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter;
 
 
 $storageClient = new StorageClient([
-    'projectId' => '{}',
+    'projectId' => 'watchful-gear-213920',
     'keyFilePath' => CREDENTIALS . "/credentials.json",
 ]);
 $bucket = $storageClient->bucket('dishitpala');
