@@ -1,6 +1,8 @@
 # :beginner: Facebook-Album
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dishitpala/Facebook-Album/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dishitpala/Facebook-Album/?branch=master)
+[![Build Status](https://travis-ci.org/dishitpala/Facebook-Album.svg?branch=master)](https://travis-ci.org/dishitpala/Facebook-Album)
+
 
 Facebook Album is a complete UI package which provides some cool functionality. the project is well structured and well maintained 
 
