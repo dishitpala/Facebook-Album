@@ -7,6 +7,5 @@ branches:
   only:
     master
 before_install:
-  - travis_retry composer self-update
-  - composer install
+  - library/composer install
 script: phpunit --exclude-group FITS --bootstrap tests/bootstrap.php tests
