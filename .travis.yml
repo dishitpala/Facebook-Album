@@ -10,4 +10,4 @@ branches:
 before_script:
   - composer require phpunit/phpunit
 
-script: phpunit
+script: phpunit --exclude-group FITS --bootstrap tests/bootstrap.php tests
