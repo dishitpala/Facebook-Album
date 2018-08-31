@@ -6,6 +6,5 @@ php:
 branches:
   only:
     master
-before_install:
-  - library/composer install
+
 script: phpunit --exclude-group FITS --bootstrap tests/bootstrap.php tests
