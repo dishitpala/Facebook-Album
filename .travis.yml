@@ -7,4 +7,4 @@ branches:
   only:
     master
 
-script: phpunit
+script: phpunit tests/includes/facebook/easy_facebook_test.php
