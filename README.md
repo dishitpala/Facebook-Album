@@ -18,7 +18,7 @@ Facebook Album is a complete UI package which provides some cool functionality. 
   
 
 > :triumph: The app is still under the review by facebook.
-> :sunglasses: if you want to experience the above features
+> :sunglasses: if you want to experience the above features [click here](https://dishitpala.herokuapp.com)
 
 
 ### :ski: Technology 
@@ -35,13 +35,13 @@ Some of the technology which are used to develop the web-app:
 ### :seedling: Prerequisites
 
 1. Create the app on [facebook]()
-	* Copy your credentials and paste it to the includes/facebook/configurations.php 
 2. Create account on [Google Cloude]()
 	* Go to the App Engine and create bucket generate the credential file.
-	* Go to credentials folder and paste the file.
 3. Enable the [Google Drive]() API.
 	* Go to google api console and search for the Google Client API
-	* Enable the API and capy paste the credentials to includes/google/drive/configuration.php
+4. Final Step:
+	*  Goto credentials folder edit the credential.env file
+	paste the necessary ids and secrets to .env file
 
 ### :rowboat: Installation
 
@@ -58,6 +58,9 @@ $ composer require google/apiclient
 
 $ # To install the Google Storage Bucket API
 $ composer require superbalist/flysystem-google-storage
+
+$ # To install vlucas/phpdotenv
+$ composer require vlucas/phpdotenv
 ```
 
 
@@ -76,6 +79,7 @@ The following plugins are used to enhance the application.
 | Photoswipe | [photoswipe](https://github.com/dimsemenov/PhotoSwipe) |
 | Icons8 | [icons8](https://icons8.com/icon/new-icons/color) |
 | Bootstrap | [bootstrap](https://getbootstrap.com/) |
+|phpdotenv|[vlucas/phpdotenv](https://github.com/vlucas/phpdotenv)|
 
 
 ### :dart: Development & Deployment
