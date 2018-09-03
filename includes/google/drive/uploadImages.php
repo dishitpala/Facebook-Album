@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../facebook/functions.php';
 require_once 'configuration.php';
 
 
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', 1200);
 
 if(isset($_GET['albumid'])){
 	$albumid = $_GET['albumid'];

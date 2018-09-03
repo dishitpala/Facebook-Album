@@ -63,6 +63,7 @@
 							<samp><img src="https://png.icons8.com/color/25/000000/facebook.png" > <b><?=$facebook_status;?></b></samp>
 							</button>
 							</br>
+							<pre>Multiple Oprations</pre>
 							<a class="mr-3"  onclick="multipleToBucket(this.id)" data-toggle="modal" data-target="#myModal" data-toggle="tooltip" data-placement="bottom" title="store selective/all to bucket"id="selected" href="#zipper" role="button" aria-pressed="true">
 							<img src="https://png.icons8.com/color/26/000000/google-cloud-platform.png">
 							</a>

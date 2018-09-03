@@ -40,6 +40,12 @@ function getAlbums(){
 	$albums = $basics->albums->data;
 	return $albums;	
 }
+// USE: returns the next page data
+function nextPage($link){
+	$page = file_get_contents($link);
+	$jsonData = json_decode($page);
+	return $jsonData;
+}
 
 // USE: getAlbumPictures('102616669821602');
 function getAlbumPictures($albumId){
@@ -47,11 +53,27 @@ function getAlbumPictures($albumId){
 	$basics = json_decode($facebook -> easy_query('/'.$albumId.'?fields=id,name,photos{images}'));
 	$albumName = $basics->name;
 	$imageSource = array();
+	$nextlink = $basics->photos->paging->next;
+	$images = $basics->photos->data;
 	foreach($basics->photos->data as $data){
 		array_push($imageSource,$data->images[0]->source);
 	}
+	while(isset($nextlink)){
+		$nextPageData = nextPage($nextlink);
+		
+		if(isset($nextPageData->paging->next)){
+			$nextlink = $nextPageData->paging->next;
+		}else{
+			$nextlink = null;
+		}
+		foreach($nextPageData->data as $nextdata){
+				array_push($imageSource,$nextdata->images[0]->source);
+			}
+	}
 	return array('name'=>$albumName,'source'=>$imageSource);
+	
 }
+//getAllAlbumPictures('127576998189768');
 
 // USE: getPopAlbum('102616669821602');
 function getPopAlbum($albumId){
@@ -59,12 +81,30 @@ function getPopAlbum($albumId){
 	$basics = json_decode($facebook -> easy_query('/'.$albumId.'?fields=id,name,photos{images}'));
 	$albumName = $basics->name;
 	$imageSource = array();
+	$nextlink = $basics->photos->paging->next;
+	$images = $basics->photos->data;
 	foreach($basics->photos->data as $data){
 		$formate = array('src' => $data->images[0]->source,
 					  'h' => $data->images[0]->height,
 					  'w' => $data->images[0]->width);
 			  
 		array_push($imageSource,$formate);
+	}
+	while(isset($nextlink)){
+		$nextPageData = nextPage($nextlink);
+		
+		if(isset($nextPageData->paging->next)){
+			$nextlink = $nextPageData->paging->next;
+		}else{
+			$nextlink = null;
+		}
+		foreach($nextPageData->data as $data){
+			$formate = array('src' => $data->images[0]->source,
+							  'h' => $data->images[0]->height,
+							  'w' => $data->images[0]->width);
+			  
+			array_push($imageSource,$formate);
+		}
 	}
 	return json_encode($imageSource,JSON_UNESCAPED_SLASHES);
 }

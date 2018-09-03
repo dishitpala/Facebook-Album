@@ -12,8 +12,6 @@
 
 defined("CREDENTIALS")
     or define("CREDENTIALS", realpath(dirname(__FILE__) . '/credentials'));
-	
-
      
 
  

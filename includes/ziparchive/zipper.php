@@ -5,7 +5,7 @@ require_once '../google/bucket/configuration.php';
 require_once '../google/bucket/easy_bucket.php';
 
 
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', 1200);
 
 if(isset($_GET['albumid'])){
 	$albumid = $_GET['albumid'];

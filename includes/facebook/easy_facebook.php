@@ -12,7 +12,7 @@ use Facebook\Exceptions\FacebookSDKException;
 
 class easy_facebook extends Facebook{
 	
-	public $permission,$url;
+	public $permission,$url,$response;
 	
 	
 	function easy_helper(){
@@ -80,7 +80,7 @@ class easy_facebook extends Facebook{
 	    if ($this->isLoggedIn() == true){
 			try {
 				// Returns a `Facebook\FacebookResponse` object
-				$response = $this->get('/'.$query, $_SESSION['Facebook_Token']);
+				$this->response = $this->get('/'.$query, $_SESSION['Facebook_Token']);
 			} catch (Facebook\Exceptions\FacebookResponseException $e) {
 				echo 'Graph returned an error: ' . $e->getMessage();
 				exit;
@@ -88,7 +88,7 @@ class easy_facebook extends Facebook{
 				echo 'Facebook SDK returned an error: ' . $e->getMessage();
 				exit;
 			}	
-			$data = $response->getBody();
+			$data = $this->response->getBody();
 			return $data;
 		}
 	}

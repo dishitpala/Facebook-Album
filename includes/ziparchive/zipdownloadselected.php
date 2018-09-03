@@ -11,7 +11,10 @@ if(isset($_GET['name'])){
 		
 		try{
 			$zip = new ZipArchive();
-			if($zip->open('selectedalbums.zip', ZIPARCHIVE::CREATE)!==TRUE)  
+			if (!file_exists("zips/".$_SESSION['Facebook_Id'])) {
+				mkdir("zips/".$_SESSION['Facebook_Id'], 0777, true);
+			}
+			if($zip->open("zips/".$_SESSION['Facebook_Id']."/".'selectedalbums.zip', ZIPARCHIVE::CREATE)!==TRUE)  
 			{   
 				// Opening zip file to load files  
 				$error .= "* Sorry ZIP creation failed at this time";  
@@ -47,7 +50,10 @@ if(isset($_GET['name'])){
 		
 		try{
 			$zip = new ZipArchive();
-			if($zip->open('allalbums.zip', ZIPARCHIVE::CREATE)!==TRUE)  
+			if (!file_exists("zips/".$_SESSION['Facebook_Id'])) {
+				mkdir("zips/".$_SESSION['Facebook_Id'], 0777, true);
+			}
+			if($zip->open("zips/".$_SESSION['Facebook_Id']."/".'allalbums.zip', ZIPARCHIVE::CREATE)!==TRUE)  
 			{   
 				// Opening zip file to load files  
 				$error .= "* Sorry ZIP creation failed at this time";  

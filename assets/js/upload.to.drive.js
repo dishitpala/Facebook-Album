@@ -14,7 +14,7 @@ function singleToDrive(id_name_postfix) {
 			})
 			.catch(function(error) {
 				// handle error
-				$("#" + response.data + "-progressbar").remove();
+				$("#" + id + "-" + name + "-progressbar").remove();
 				$('#30seconds').modal('show');
 				console.log(error);
 			});

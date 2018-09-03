@@ -1,7 +1,7 @@
 <?php 
 require_once 'includes/facebook/configuration.php'; 
 require_once 'includes/facebook/functions.php'; 
-      
+   
 	  
 	  
 if($facebook->isLoggedIn() == true){
@@ -9,11 +9,12 @@ if($facebook->isLoggedIn() == true){
 
 	require_once 'includes/google/drive/configuration.php'; 
     require_once 'includes/google/drive/functions.php'; 
+	require_once 'includes/google/bucket/credential_generator.php';
     require_once 'includes/google/bucket/configuration.php'; 
     require_once 'includes/google/bucket/easy_bucket.php'; 
     require_once 'includes/google/bucket/functions.php';
     require_once 'templates/photoswipe.ui.php';
-    require_once 'templates/confirm.php';
+    //require_once 'templates/confirm.php';
     require_once 'templates/30sec.php';
 
 	
